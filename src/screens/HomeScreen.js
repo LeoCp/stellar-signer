@@ -40,16 +40,15 @@ import {
 	LoadButtonWrapper
 } from '../components/utils'
 
-import getSecretStore from './../store/secrets'
-import store from './../store/realm'
+// import getSecretStore from './../store/secrets'
+// import store from './../store/realm'
 import { decodeFromXdr, signXdr } from './../utils/xdrUtils';
+import parseEnvelopeTree from './../utils/parseEnvelopeTree'
+
 // Delete All
 // store.write(() => {
 //   store.deleteAll();
 // });
-import parseEnvelopeTree from './../utils/parseEnvelopeTree'
-
-
 @inject('appStore')
 @observer
 class HomeScreen extends Component {
@@ -91,13 +90,13 @@ class HomeScreen extends Component {
   }
 
   checkSalt = () => {
-    const salt = store.objects('Salt')[0]
-    if (!salt) {
-      store.write(() => {
-        const val = cryptocore.lib.WordArray.random(128 / 8)
-        store.create('Salt', { id: uuid(), value: JSON.stringify(val) })
-      })
-    }
+    // const salt = store.objects('Salt')[0]
+    // if (!salt) {
+    //   store.write(() => {
+    //     const val = cryptocore.lib.WordArray.random(128 / 8)
+    //     store.create('Salt', { id: uuid(), value: JSON.stringify(val) })
+    //   })
+    // }
   }
 
   handleCurrentTx = () => {
